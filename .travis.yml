@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "0.11"
+  - '0.11'
 before_install:
   - bundle install
   - npm install -g grunt-cli
@@ -10,3 +10,11 @@ install:
   - npm install
 script:
   - grunt build
+after_success:
+  - cd dist
+  - git add -A
+  - git commit -m 'Update'
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/ashphy/jsonpath-online-evaluator.git gh-pages 2> /dev/null'
+env:
+  global:
+    secure: JTAInbRSvDsG+FIAW8eRmXKtUg2zMkozDShB216vtMabtjE8Phnmj8fAlFx+sRbGHbmi33iCa/YrquHEgj3tTqLUJPqIvAeKlkBmnAZhpfqfkuUifsjRpfC5S0Noq/TIH4Fi8xYO4LUmXmhaFHQDfT869FBZ2Y5jRytBbGXvIeA=
