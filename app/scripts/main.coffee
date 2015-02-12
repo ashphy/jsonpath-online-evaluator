@@ -11,6 +11,7 @@ evaluate = (event, previousText) ->
   result = JSONPath(
     json: json
     path: query)
+  console.log(result);
   $('.result').empty()
   if result
     $('.result').append dump(result)
