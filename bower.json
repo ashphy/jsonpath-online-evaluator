@@ -4,6 +4,8 @@
   "dependencies": {
     "bootstrap-sass-official": "~3.2.0",
     "jsonpath": "*",
-    "jquery-textchange": "~0.2.3"
+    "jquery-textchange": "~0.2.3",
+    "ace-builds": "~1.1.8",
+    "lodash": "~3.2.0"
   }
 }

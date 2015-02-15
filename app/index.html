@@ -43,42 +43,37 @@
             </div>
             <div class="form-group" id="json-area">
               <label>JSON</label>
-              <span id="json-aler" class="help-block"></span>
-              <textarea class="form-control" rows="30" cols="80">
-{
-     "firstName": "John",
-     "lastName" : "doe",
-     "age"      : 26,
-     "address"  :
-     {
-         "streetAddress": "naist street",
-         "city"         : "Nara",
-         "postalCode"   : "630-0192"
-     },
-     "phoneNumbers":
-     [
-         {
-           "type"  : "iPhone",
-           "number": "0123-4567-8888"
-         },
-         {
-           "type"  : "home",
-           "number": "0123-4567-8910"
-         }
-     ]
- }
-              </textarea>
             </div>
           </form>
+          <div id="json-editor" class="editor">{
+  "firstName": "John",
+  "lastName" : "doe",
+  "age"      : 26,
+  "address"  : {
+    "streetAddress": "naist street",
+    "city"         : "Nara",
+    "postalCode"   : "630-0192"
+  },
+  "phoneNumbers": [
+    {
+      "type"  : "iPhone",
+      "number": "0123-4567-8888"
+    },
+    {
+      "type"  : "home",
+      "number": "0123-4567-8910"
+    }
+  ]
+}</div>
         </div>
         <div class="col-sm-6">
           <h2>Evaluation Results</h2>
-          <pre class="result">false</pre>
+          <div id="result-editor" class="editor"></div>
         </div>
       </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer clearfix">
       <div class="container">
         <p class="text-muted">by <a href="http://ashphy.com/">Kazuki Hamasaki</a></p>
       </div>
@@ -100,9 +95,11 @@
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/jquery-textchange/jquery.textchange.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <script src="bower_components/jsonpath/lib/jsonpath.js"></script>
+    <script src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
     <script src="scripts/vendor/dump.js"></script>
 
     <script>
