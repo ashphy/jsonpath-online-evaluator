@@ -35,6 +35,27 @@ body {
   border-top: 1px solid #e5e5e5;
   margin-top: 40px;
   padding-top: 20px;
+  text-align: center;
+
+  .sns {
+    list-style-type: none;
+    width: 600px;
+
+    li {
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}
+
+.twitter {
+  width: 80px;
+}
+
+.pocket {
+  width: 90px;
+
 }
 
 .container-narrow > hr {
