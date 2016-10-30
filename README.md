@@ -12,10 +12,7 @@ Artifacts are placed under the `dist`.
 
 ```
   $ bundle install
-  $ npm install -g grunt
-  $ npm install -g bower
   $ npm install
-  $ bower install
   $ grunt build
 ```
 

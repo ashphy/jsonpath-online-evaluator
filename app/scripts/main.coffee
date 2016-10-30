@@ -31,6 +31,7 @@ class JsonPathOnlineEvaluator
       path: query
     )
 
+    console.debug(result)
     unless _.isEmpty(result)
       @resultEditor.getSession().setValue dump(result)
     else
