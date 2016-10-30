@@ -13,7 +13,7 @@ Artifacts are placed under the `dist`.
 ```
   $ bundle install
   $ npm install
-  $ grunt build
+  $ npm run build
 ```
 
 ## Contributing
