@@ -1,12 +1,12 @@
 class JsonPathOnlineEvaluator
-
   constructor: ->
     @editor = ace.edit("json-editor");
-    @editor.setTheme("ace/theme/solarized_dark");
-    @editor.getSession().setMode("ace/mode/json");
+    @editor.setTheme("ace/theme/solarized_dark")
+    @editor.getSession().setMode("ace/mode/json")
 
-    @resultEditor = ace.edit("result-editor");
-    @resultEditor.setTheme("ace/theme/solarized_dark");
+    @resultEditor = ace.edit("result-editor")
+    @resultEditor.setTheme("ace/theme/solarized_dark")
+    @resultEditor.getSession().setMode("ace/mode/json")
     @resultEditor.setReadOnly(true);
 
     $('input').on 'textchange', @evaluate
@@ -33,7 +33,7 @@ class JsonPathOnlineEvaluator
 
     console.debug(result)
     unless _.isEmpty(result)
-      @resultEditor.getSession().setValue dump(result)
+      @resultEditor.getSession().setValue JSON.stringify(result, undefined, 2)
     else
       @resultEditor.getSession().setValue 'No match'
 
