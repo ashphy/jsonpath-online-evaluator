@@ -9,13 +9,15 @@ class JsonPathOnlineEvaluator
     @resultEditor.getSession().setMode("ace/mode/json")
     @resultEditor.setReadOnly(true);
 
-    $('input').on 'textchange', @evaluate
+    $('#syntax').on 'textchange', @evaluate
+    $('#path-switch').on 'change', @evaluate
     @editor.on 'change', @evaluate
 
     @evaluate()
 
   evaluate: =>
-    query = $('input').val()
+    query = $('#syntax').val()
+    mode = if $('#path-switch').is(':checked') then 'PATH' else 'VALUE'
     json_str = @editor.getValue()
 
     try
@@ -29,6 +31,7 @@ class JsonPathOnlineEvaluator
     result = JSONPath(
       json: json
       path: query
+      resultType: mode
     )
 
     console.debug(result)
