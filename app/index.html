@@ -50,8 +50,13 @@
           <h2>Inputs</h2>
           <form>
             <div class="form-group">
+              <label>
+                <input id="path-switch" type="checkbox"> Output paths
+              </label>
+            </div>
+            <div class="form-group">
               <label>JSONPath Syntax</label>
-              <input type="text" class="form-control" placeholder="Put JSONPath syntax" value="$.phoneNumbers[:1].type" />
+              <input id="syntax" type="text" class="form-control" placeholder="Put JSONPath syntax" value="$.phoneNumbers[:1].type" />
               <span class="help-block">
                 Example '$.phoneNumbers[*].type' See also
                 <a href="http://goessner.net/articles/JsonPath/index.html#e2" target="_blank">JSONPath expressions
