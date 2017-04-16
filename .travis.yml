@@ -10,3 +10,14 @@ install:
   - npm install
 script:
   - grunt build
+deploy:
+  provider: s3
+  access_key_id: "AKIAIRHUA6LOC3PSPQUA"
+  secret_access_key:
+    secure: "d2uvRwFmegUFkzIf1hxbA2OJ0J94SDyDogHNOVTIlYrjsWAeVN3OwEfC1pokr6pPnZFqtM/l6C4TI0rthuim3OuSl2NcnEkBl8SFXm6p50zruOdSTM7la2W0IwqdYZML2xmMgxpiDze75A+Y+pVH7ouAezfeugSk9QFkV1yR7No="
+  bucket: "jsonpath.com"
+  local_dir: dist
+  skip_cleanup: true
+  region: 'us-west-2'
+  on:
+    branch: master
