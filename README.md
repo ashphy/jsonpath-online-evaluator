@@ -1,4 +1,4 @@
-# JSONPath Online Evaluator
+# JSONPath Online Evaluator [![Build Status](https://travis-ci.org/ashphy/jsonpath-online-evaluator.svg?branch=master)](https://travis-ci.org/ashphy/jsonpath-online-evaluator)
 A playground for [JSONPath](http://goessner.net/articles/JsonPath/)
 
 ## Requirements
