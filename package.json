@@ -2,7 +2,8 @@
   "name": "jsonpath-online-evaluator",
   "scripts": {
     "postinstall": "$(npm bin)/bower install",
-    "build": "$(npm bin)/grunt build"
+    "build": "$(npm bin)/grunt build",
+    "serve": "$(npm bin)/grunt serve"
   },
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
