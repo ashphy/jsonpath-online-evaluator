@@ -1,9 +1,9 @@
 {
   "name": "jsonpath-online-evaluator",
   "scripts": {
-    "postinstall": "$(npm bin)/bower install",
-    "build": "$(npm bin)/grunt build",
-    "serve": "$(npm bin)/grunt serve"
+    "postinstall": "$(yarn bin)/bower install",
+    "build": "$(yarn bin)/grunt build",
+    "serve": "$(yarn bin)/grunt serve"
   },
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
@@ -38,6 +38,6 @@
     "time-grunt": "^0.4.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   }
 }

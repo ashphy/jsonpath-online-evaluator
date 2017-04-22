@@ -4,6 +4,7 @@ A playground for [JSONPath](http://goessner.net/articles/JsonPath/)
 ## Requirements
 - ruby
 - node.js
+- yarn
 - grunt
 - bower
 
@@ -12,8 +13,8 @@ Artifacts are placed under the `dist`.
 
 ```
   $ bundle install
-  $ npm install
-  $ npm run build
+  $ yarn install
+  $ yarn run build
 ```
 
 ## Contributing
