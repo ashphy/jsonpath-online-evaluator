@@ -3,13 +3,10 @@ node_js:
   - '0.11'
 before_install:
   - bundle install
-  - npm install -g grunt-cli
-  - npm install -g bower
-  - bower install
 install:
   - npm install
 script:
-  - grunt build
+  - npm run build
 deploy:
   provider: s3
   access_key_id: "AKIAIRHUA6LOC3PSPQUA"
