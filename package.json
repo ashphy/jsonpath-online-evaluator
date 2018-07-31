@@ -26,7 +26,7 @@
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-htmlhint": "^0.4.1",
-    "grunt-mocha": "^0.4.10",
+    "grunt-mocha-jsdom": "^0.2.1",
     "grunt-newer": "^0.7.0",
     "grunt-notify": "^0.4.1",
     "grunt-rev": "^0.1.0",
