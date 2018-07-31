@@ -15,6 +15,7 @@ Artifacts are placed under the `dist`.
   $ bundle install
   $ yarn install
   $ yarn run build
+  $ yarn run serve
 ```
 
 ## Contributing
