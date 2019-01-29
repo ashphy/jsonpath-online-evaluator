@@ -28,7 +28,7 @@ class JsonPathOnlineEvaluator
       @resultEditor.getSession().setValue 'Json Parse Error'
       return
 
-    result = JSONPath(
+    result = JSONPath.JSONPath(
       json: json
       path: query
       resultType: mode
