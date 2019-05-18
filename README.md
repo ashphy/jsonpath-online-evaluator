@@ -18,6 +18,13 @@ Artifacts are placed under the `dist`.
   $ yarn run serve
 ```
 
+## Build and run with Docker
+Run on port `8080`.
+
+```
+  $ docker run -it --rm -p 8080:80 $(docker build -q .)
+```
+
 ## Contributing
 
 1. Fork it!
