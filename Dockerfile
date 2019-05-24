@@ -1,4 +1,4 @@
-FROM fedora:29 as build
+FROM fedora:29 as BUILDENV
 RUN dnf --assumeyes install redhat-rpm-config
 RUN dnf --assumeyes install rubygem-bundler
 RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo -o /etc/yum.repos.d/yarn.repo
@@ -18,5 +18,5 @@ RUN bundle install --deployment
 RUN bundle exec yarn install
 RUN bundle exec yarn run build
 
-FROM httpd:2.4
-COPY --from=build /tmp/jsonpath-online-evaluator/dist/ /usr/local/apache2/htdocs/
+FROM nginx:1.15-alpine
+COPY --from=BUILDENV /tmp/jsonpath-online-evaluator/dist/ /usr/share/nginx/html/
