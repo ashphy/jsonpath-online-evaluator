@@ -3,7 +3,7 @@ cache:
   - bundler
   - yarn
 node_js:
-  - '6'
+  - '13'
 before_install:
   - bundle install
 install:
