@@ -16,7 +16,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-coffee": "^2.1.0",
     "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-connect": "^2.0.0",
+    "grunt-contrib-connect": "^2.1.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-htmlmin": "^3.1.0",
@@ -36,12 +36,15 @@
     "grunt-wiredep": "^3.0.1",
     "jshint-stylish": "^0.4.0",
     "load-grunt-tasks": "^5.1.0",
+    "serve-static": "^1.14.1",
     "time-grunt": "^0.4.0"
   },
   "engines": {
     "node": ">=4"
   },
   "dependencies": {
-    "jsonpath-plus": "^0.18.1"
+    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
+    "jsonpath-plus": "^0.18.1",
+    "uglify-es": "^3.3.9"
   }
 }
