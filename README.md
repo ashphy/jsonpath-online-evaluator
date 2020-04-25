@@ -13,6 +13,14 @@ Artifacts placed under the `dist`.
   $ npm run build # Building the static files
 ```
 
+## Run on docker
+
+[Public docker image](https://hub.docker.com/r/ashphy/jsonpath-online-evaluator) is available
+
+```bash
+ $ docker run -d -p 8080:80 ashphy/jsonpath-online-evaluator:1.0
+```
+
 ## Contributing
 
 1. Fork it!
