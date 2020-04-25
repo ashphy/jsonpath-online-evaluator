@@ -28,7 +28,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
-      - run: zip -j -r release dist
+      - run: zip -j -r jsonpath-online-evaluator.zip dist
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
