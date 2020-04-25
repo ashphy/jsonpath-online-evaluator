@@ -20,8 +20,12 @@ Artifacts placed under the `dist`.
 [Public docker image](https://hub.docker.com/r/ashphy/jsonpath-online-evaluator) is available
 
 ```bash
- $ docker run -d -p 8080:80 ashphy/jsonpath-online-evaluator:1.0
+ $ docker run -d -p 8080:80 ashphy/jsonpath-online-evaluator:latest
 ```
+
+## Hosting static files
+
+Download at [releases](https://github.com/ashphy/jsonpath-online-evaluator/releases).
 
 ## Contributing
 
