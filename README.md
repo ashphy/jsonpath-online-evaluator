@@ -15,6 +15,8 @@ Artifacts placed under the `dist`.
 
 ## Run on docker
 
+[![Build Status](https://img.shields.io/docker/cloud/build/ashphy/jsonpath-online-evaluator)](https://hub.docker.com/r/ashphy/jsonpath-online-evaluator)
+
 [Public docker image](https://hub.docker.com/r/ashphy/jsonpath-online-evaluator) is available
 
 ```bash
