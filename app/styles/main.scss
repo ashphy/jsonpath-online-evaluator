@@ -1,15 +1,11 @@
 $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
-// scss-lint:disable all
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
-// endbower
-// scss-lint:enable all
+@import '~bootstrap/scss/bootstrap';
 
 .browsehappy {
   background: #ccc;
   color: #000;
-  margin: .2em 0;
-  padding: .2em 0;
+  margin: 0.2em 0;
+  padding: 0.2em 0;
 }
 
 // Space out content a bit

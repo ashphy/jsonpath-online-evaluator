@@ -1,9 +1,0 @@
-{
-  "name": "jsonpath-online-evaluator",
-  "private": true,
-  "dependencies": {
-    "bootstrap-sass-official": "~3.2.0",
-    "jquery-textchange": "~0.2.3",
-    "lodash": "~3.2.0"
-  }
-}

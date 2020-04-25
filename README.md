@@ -3,16 +3,14 @@ A playground for [JSONPath](http://goessner.net/articles/JsonPath/)
 
 ## Requirements
 - node.js
-- grunt
-- bower
 
 ## Build on your environment
-Artifacts are placed under the `dist`.
+Artifacts placed under the `dist`.
 
 ```
   $ npm install
-  $ npm run build
-  $ npm run serve
+  $ npm run start # Starting the dev server
+  $ npm run build # Building the static files
 ```
 
 ## Contributing
