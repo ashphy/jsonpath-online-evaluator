@@ -2,9 +2,9 @@
   "name": "jsonpath-online-evaluator",
   "license": "MIT",
   "scripts": {
-    "postinstall": "$(yarn bin)/bower install",
-    "build": "$(yarn bin)/grunt build",
-    "serve": "$(yarn bin)/grunt serve"
+    "postinstall": "bower install",
+    "build": "grunt build",
+    "serve": "grunt serve"
   },
   "devDependencies": {
     "apache-server-configs": "^2.7.1",

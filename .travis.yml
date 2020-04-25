@@ -1,15 +1,14 @@
 language: node_js
 cache:
   - bundler
-  - yarn
 node_js:
   - '13'
 before_install:
   - bundle install
 install:
-  - yarn install
+  - npm ci
 script:
-  - yarn run build
+  - npm run build
 deploy:
   provider: s3
   access_key_id: "AKIAIRHUA6LOC3PSPQUA"
