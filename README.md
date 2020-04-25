@@ -2,7 +2,6 @@
 A playground for [JSONPath](http://goessner.net/articles/JsonPath/)
 
 ## Requirements
-- ruby
 - node.js
 - grunt
 - bower
@@ -11,7 +10,6 @@ A playground for [JSONPath](http://goessner.net/articles/JsonPath/)
 Artifacts are placed under the `dist`.
 
 ```
-  $ bundle install
   $ npm install
   $ npm run build
   $ npm run serve
