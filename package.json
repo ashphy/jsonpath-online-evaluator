@@ -9,7 +9,7 @@
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
     "bower": "^1.7.9",
-    "grunt": "^1.0.4",
+    "grunt": "^1.1.0",
     "grunt-autoprefixer": "^1.0.0",
     "grunt-cli": "^1.2.0",
     "grunt-concurrent": "^0.5.0",
