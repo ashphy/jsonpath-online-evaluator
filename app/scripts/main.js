@@ -55,4 +55,7 @@ class JsonPathOnlineEvaluator {
   }
 }
 
-$(() => new JsonPathOnlineEvaluator());
+$(() => {
+  $('#syntax').focus();
+  return new JsonPathOnlineEvaluator();
+});
