@@ -18,7 +18,7 @@ class JsonPathOnlineEvaluator {
     this.resultEditor.getSession().setMode('ace/mode/json');
     this.resultEditor.setReadOnly(true);
 
-    $('#syntax').on('textchange', this.evaluate);
+    $('#syntax').on('input', this.evaluate);
     $('#path-switch').on('change', this.evaluate);
     this.editor.on('change', this.evaluate);
 
