@@ -3,29 +3,29 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack serve --mode development --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint app/scripts/*.js"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.6",
     "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.5.3",
+    "css-loader": "^5.1.3",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
     "eslint-loader": "^4.0.2",
-    "html-webpack-plugin": "^4.2.0",
+    "html-webpack-plugin": "^5.3.1",
     "postcss-loader": "^3.0.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
     "stylelint": "^13.3.3",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-webpack-plugin": "^1.2.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^4.2.2"
+    "webpack": "^5.26.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "engines": {
     "node": ">=14"
