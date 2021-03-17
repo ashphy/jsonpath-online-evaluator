@@ -54,5 +54,10 @@ module.exports = {
         loader: 'eslint-loader',
       },
     ]
-  }
+  },
+  resolve: {
+    fallback: {
+      vm: false,
+    }
+  },
 };
