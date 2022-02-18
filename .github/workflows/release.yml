@@ -16,16 +16,17 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: '16.x'
 
       - run: npm ci
       - run: npm run build
-
+        env:
+          GENERATE_SOURCEMAP: falsa
       - name: Archive assets
         uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: build
+          path: build
           retention-days: 1
 
   create_realease:
@@ -36,7 +37,7 @@ jobs:
       - name: Download assets
         uses: actions/download-artifact@v2
         with:
-          name: dist
+          name: build
 
       - name: Compress aseets
         run: zip -r jsonpath-online-evaluator.zip .
@@ -72,7 +73,7 @@ jobs:
       - name: Download assets
         uses: actions/download-artifact@v2
         with:
-          name: dist
+          name: build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
