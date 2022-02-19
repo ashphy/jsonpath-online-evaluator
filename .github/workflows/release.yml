@@ -43,6 +43,7 @@ jobs:
         run: zip -r jsonpath-online-evaluator.zip .
 
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -100,6 +101,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
+        id: meta
         uses: docker/metadata-action@v3.6.2
         with:
           images: ashphy/actions-test
