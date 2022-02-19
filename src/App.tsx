@@ -122,7 +122,7 @@ function App() {
 
       <JsonExpressions />
 
-      <div className="row">
+      <div className="row row-cols-1 row-cols-md-2">
         <div className="col">
           <h2>Inputs</h2>
           <AceEditor
