@@ -12,7 +12,7 @@
     <meta name="description" content="An online playground for JSONPath">
     <meta property="og:title" content="JSONPath Online Evaluator">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://jsonpath.com/">
+    <meta property="og:url" content="https://jsonpath.com/">
     <meta property="og:site_name" content="JSONPath Online Evaluator">
     <meta property="og:locale" content="en_US">
     <meta property="og:description" content="JSONPath Online Evaluator">
@@ -32,6 +32,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     <link href="index.css" rel="stylesheet">
 
     <title>JSONPath Online Evaluator</title>
@@ -41,18 +43,7 @@
 
     <!-- Facebook SDK -->
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=707625462689281&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- GitHub Ribbons -->
-    <a href="https://github.com/ashphy/jsonpath-online-evaluator">
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-    </a>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0&appId=707625462689281&autoLogAppEvents=1" nonce="KswUoPuS"></script>
 
     <div class="header">
       <h3 class="text-muted">
@@ -63,30 +54,29 @@
 
     <div id="root" class="row"></div>
 
-    <footer class="footer clearfix">
+    <footer class="footer">
       <div class="container">
-        <ul class="sns clearfix center-block">
-          <li>
-            <div class="fb-like" data-href="http://jsonpath.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-          </li>
-          <li class="twitter">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://jsonpath.com/" data-via="ashphy" data-dnt="true">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-          </li>
-          <li class="pocket">
-            <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
-            <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
-          </li>
-          <li>
-            <a href="http://b.hatena.ne.jp/entry/http://jsonpath.com/" class="hatena-bookmark-button" data-hatena-bookmark-title="JSONPath Online Evaluator" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
-          </li>
-          <li>
-            <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" ><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
-            <!-- Please call pinit.js only once per page -->
-            <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
-          </li>
-        </ul>
-        <div class="clearfix">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <!-- GitHub Star -->
+            <div class="col col-md-auto">
+              <a class="github-button" href="https://github.com/ashphy/jsonpath-online-evaluator" data-show-count="true" aria-label="Star ashphy/jsonpath-online-evaluator on GitHub">Star</a>
+            </div>
+
+            <!-- Twitter Share -->
+            <div class="col col-md-auto">
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://jsonpath.com/" data-via="ashphy" data-show-count="false">Tweet</a>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <!-- Facebook -->
+            <div class="col col-md-auto">
+              <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="author">
           <p class="text-muted">ashphy - <a href="http://ashphy.com/">Kazuki Hamasaki</a></p>
         </div>
       </div>
