@@ -24,6 +24,8 @@ function App() {
   const [result, setResult] = useState(JSON.stringify([], null, 4));
   const [resultType, setResultType] = useState<'value' | 'path'>('value');
   const [query, setQuery] = useState('$.phoneNumbers[:1].type');
+  const [isQueryValid, setQueryValid] = useState(true);
+  const [queryParseError, setQueryParseError] = useState('');
 
   const queryInput = useRef<HTMLInputElement>(null);
 
@@ -38,11 +40,13 @@ function App() {
 
   function onChangeResultType(event: any) {
     const type = event.target.checked ? 'path' : 'value';
-    setResultType(type)
+    setResultType(type);
   }
 
   function applyJsonPath(jsonStr: string, jsonPath: string) {
     let json = '';
+    let result = '';
+
     try {
       json = JSON.parse(jsonStr.replace(/(\r\n|\n|\r)/gm, ''));
     } catch (error) {
@@ -50,11 +54,20 @@ function App() {
       return;
     }
 
-    const result = JSONPath({
-      json,
-      path: jsonPath,
-      resultType: resultType,
-    });
+    try {
+      result = JSONPath({
+        json,
+        path: jsonPath,
+        resultType: resultType,
+      });
+      setQueryValid(true);
+      setQueryParseError('');
+    } catch (error) {
+      setQueryValid(false);
+      if (error instanceof Error) {
+        setQueryParseError(error.message);
+      }
+    }
 
     if (0 < result.length) {
       setResult(JSON.stringify(result, undefined, 2));
@@ -77,7 +90,7 @@ function App() {
         <input
           id="jsonpath-query"
           type="text"
-          className="form-control"
+          className={"form-control " + (isQueryValid ? "" : "is-invalid")}
           placeholder="Put JSONPath syntax"
           value={query}
           onInput={onInputQuery}
@@ -86,6 +99,9 @@ function App() {
         <label htmlFor="jsonpath-query">
           JSONPath
         </label>
+        <div className="invalid-feedback">
+          {queryParseError}
+        </div>
       </div>
 
       <div className="row py-2">
