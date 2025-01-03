@@ -1,19 +1,16 @@
-# JSONPath Online Evaluator [![CI](https://github.com/ashphy/jsonpath-online-evaluator/actions/workflows/ci.yml/badge.svg)](https://github.com/ashphy/jsonpath-online-evaluator/actions/workflows/ci.yml)
+# JSONPath Online Evaluator [![CI](https://github.com/ashphy/jsonpath-online-evaluator/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/ashphy/jsonpath-online-evaluator/actions/workflows/ci.yml)
 A playground for [JSONPath](http://goessner.net/articles/JsonPath/)
 
 ## Requirements
 - node.js
 
-## Build on your environment
-Artifacts placed under the `build`.
+## Private Hosting
 
-```
-  $ npm install
-  $ npm start # Starting the dev server
-  $ npm run build # Building the static files
-```
+### Hosting static files
 
-## Run on docker
+Download at [releases](https://github.com/ashphy/jsonpath-online-evaluator/releases).
+
+### Run on docker
 
 [Public docker image](https://hub.docker.com/r/ashphy/jsonpath-online-evaluator) is available
 
@@ -21,9 +18,16 @@ Artifacts placed under the `build`.
  $ docker run -d -p 8080:80 ashphy/jsonpath-online-evaluator:latest
 ```
 
-## Hosting static files
+## Development
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ashphy/jsonpath-online-evaluator)
 
-Download at [releases](https://github.com/ashphy/jsonpath-online-evaluator/releases).
+or on your local machine
+
+```
+  $ npm install
+  $ npm run dev # Starting the dev server
+  $ npm run build # Building the static files
+```
 
 ## Contributing
 
