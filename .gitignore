@@ -4,3 +4,4 @@ build
 .sass-cache
 .idea
 npm-debug.log
+dist

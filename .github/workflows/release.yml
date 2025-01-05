@@ -3,7 +3,7 @@ name: Create release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build:
@@ -11,57 +11,52 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: 20
 
       - run: npm ci
       - run: npm run build
-        env:
-          GENERATE_SOURCEMAP: falsa
+
       - name: Archive assets
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: build
-          path: build
+          name: dist
+          path: dist
           retention-days: 1
 
   create_realease:
     name: Create Release
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Download assets
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
-          name: build
+          name: dist
 
       - name: Compress aseets
         run: zip -r jsonpath-online-evaluator.zip .
 
+      - name: "Build Changelog"
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          files: jsonpath-online-evaluator.zip
+          body: ${{ steps.build_changelog.outputs.changelog }}
           draft: false
           prerelease: false
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: jsonpath-online-evaluator.zip
-          asset_name: jsonpath-online-evaluator.zip
-          asset_content_type: application/zip
 
   publish_to_s3:
     name: Upload to Amazon S3
@@ -72,12 +67,12 @@ jobs:
       contents: read
     steps:
       - name: Download assets
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
-          name: build
+          name: dist
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::285224135196:role/jsonpath-deploy
           aws-region: us-west-2
@@ -92,22 +87,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@v1.12.0
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v3.6.2
+        uses: docker/metadata-action@v5
         with:
           images: ashphy/jsonpath-online-evaluator
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2.9.0
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
