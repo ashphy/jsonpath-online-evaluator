@@ -48,7 +48,7 @@ const jsonDocumentAtom = atom<JSONDocument>((get) => {
 
 const resultAtom = atom<JSONPathResult>((get) => {
   const jsonDocument = get(jsonDocumentAtom);
-  const query = get(queryAtom);
+  const query = get(queryAtom).trim();
 
   try {
     const result = evalJsonPath(
