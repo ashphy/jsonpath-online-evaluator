@@ -1,0 +1,74 @@
+name: Deploy Web App
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  CDK_DEFAULT_ACCOUNT: ${{ vars.CDK_DEFAULT_ACCOUNT }}
+  CDK_DEFAULT_REGION: ${{ vars.CDK_DEFAULT_REGION }}
+
+jobs:
+  deploy_infra:
+    name: Deploy Infrastructure
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    outputs:
+      s3_url: ${{ steps.extract_cdk_outputs.outputs.s3_url }}
+      distribution_id: ${{ steps.extract_cdk_outputs.outputs.distribution_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - run: npm ci
+        working-directory: infra
+      - run: npm run build
+        working-directory: infra
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.CDK_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.CDK_DEFAULT_REGION }}
+      - run: npm run cdk -- deploy --all --require-approval never --outputs-file output.json
+        working-directory: infra
+
+      - id: extract_cdk_outputs
+        run: |
+          echo "s3_url=$(jq -r '.JSONPathOnlineEvaluatorInfraStack.WebsiteBucketURI' output.json)" >> $GITHUB_OUTPUT
+          echo "distribution_id=$(jq -r '.JSONPathOnlineEvaluatorInfraStack.DistributionId' output.json)" >> $GITHUB_OUTPUT
+        working-directory: infra
+
+  deploy_app:
+    name: Upload to Amazon S3
+    needs: deploy_infra
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.CDK_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.CDK_DEFAULT_REGION }}
+
+      - name: Copy files to the website with the AWS CLI
+        run: |
+          aws s3 sync dist ${{ needs.deploy_infra.outputs.s3_url }} --delete --exact-timestamps
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ needs.deploy_infra.outputs.distribution_id }} --paths "/*"
