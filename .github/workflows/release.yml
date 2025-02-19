@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
 
       - run: npm ci
       - run: npm run build
@@ -57,29 +58,6 @@ jobs:
           body: ${{ steps.build_changelog.outputs.changelog }}
           draft: false
           prerelease: false
-
-  publish_to_s3:
-    name: Upload to Amazon S3
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - name: Download assets
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::285224135196:role/jsonpath-deploy
-          aws-region: us-west-2
-
-      - name: Copy files to the website with the AWS CLI
-        run: |
-          aws s3 sync . s3://jsonpath.com
 
   push_to_registry:
     name: Push Docker image to Docker Hub
