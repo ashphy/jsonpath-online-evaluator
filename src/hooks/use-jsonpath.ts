@@ -1,19 +1,21 @@
 import { useAtom, useAtomValue } from "jotai";
 import { atom } from "jotai";
 import SampleJsonFile from "../assets/sample.json?raw";
-import { JSONValue } from "@/types/json";
-import { Engine } from "@/types/engine";
+import type { JSONValue } from "@/types/json";
+import type { Engine } from "@/types/engine";
 import { evalJsonPath } from "@/lib/jsonpath";
 
 type JSONPathResult =
   | {
       isValid: true;
-      result: JSONValue;
+      values: JSONValue;
+      paths: string[];
       error: undefined;
     }
   | {
       isValid: false;
-      result: undefined;
+      values: undefined;
+      paths: undefined;
       error: string;
     };
 
@@ -51,7 +53,7 @@ const resultAtom = atom<JSONPathResult>((get) => {
   const query = get(queryAtom).trim();
 
   try {
-    const result = evalJsonPath(
+    const { values, paths } = evalJsonPath(
       get(engineAtom),
       jsonDocument.error === undefined ? jsonDocument.json : {},
       query
@@ -59,13 +61,15 @@ const resultAtom = atom<JSONPathResult>((get) => {
 
     return {
       isValid: true,
-      result,
+      values: values,
+      paths: paths,
       error: undefined,
     };
   } catch (error) {
     return {
       isValid: false,
-      result: undefined,
+      values: undefined,
+      paths: undefined,
       error: String(error),
     };
   }

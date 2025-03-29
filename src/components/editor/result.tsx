@@ -1,9 +1,15 @@
 import { useJSONPath } from "@/hooks/use-jsonpath";
 import Editor from "@monaco-editor/react";
 
-export const Result = () => {
+interface ResultProps {
+  outputPathMode: boolean;
+}
+
+export const Result = ({ outputPathMode }: ResultProps) => {
   const { result } = useJSONPath();
-  const text = result.isValid ? JSON.stringify(result.result, null, 2) : "[]";
+  const text = result.isValid
+    ? JSON.stringify(outputPathMode ? result.paths : result.values, null, 2)
+    : "[]";
 
   return (
     <Editor
