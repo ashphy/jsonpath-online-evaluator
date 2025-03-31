@@ -2,10 +2,10 @@ import { Query } from "./query";
 import { JSONEditor } from "./editor/json-editor";
 import { Result } from "./editor/result";
 import { OutputPathSwitch } from "./output-path-switch";
-import { useState } from "react";
+import { useJSONPath } from "@/hooks/use-jsonpath";
 
 export const JSONPathOnlineEvaluator = () => {
-  const [outputPathMode, setOutputPathMode] = useState(false);
+  const { outputPaths, setOutputPaths } = useJSONPath();
 
   return (
     <div className="w-full flex flex-col gap-4">
@@ -21,9 +21,9 @@ export const JSONPathOnlineEvaluator = () => {
             <h2 className="py-1 text-xl text-joe-green-950">
               Evaluation Results
             </h2>
-            <OutputPathSwitch onChange={setOutputPathMode} />
+            <OutputPathSwitch checked={outputPaths} onChange={setOutputPaths} />
           </div>
-          <Result outputPathMode={outputPathMode} />
+          <Result outputPathMode={outputPaths} />
         </div>
       </div>
     </div>
