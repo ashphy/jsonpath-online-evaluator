@@ -69,7 +69,7 @@ export const JSONEditor = () => {
       height="600px"
       path="json"
       defaultLanguage="json"
-      defaultValue={document}
+      value={document}
       loading="Loading..."
       onMount={handleEditorDidMount}
       onChange={handleOnChange}
