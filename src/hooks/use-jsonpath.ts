@@ -9,7 +9,7 @@ import { useCallback, useEffect } from "react";
 import { Session, SessionSchema } from "@/types/session";
 import * as v from "valibot";
 
-const STORAGE_KEY_SESION = "joe-session";
+const STORAGE_KEY_SESSION = "joe-session";
 
 type JSONPathResult =
   | {
@@ -56,7 +56,7 @@ const loadSessionFromURLHash = async (): Promise<Session | undefined> => {
 };
 
 const loadSessionFromLocalStorage = async (): Promise<Session | undefined> => {
-  const session = localStorage.getItem(STORAGE_KEY_SESION);
+  const session = localStorage.getItem(STORAGE_KEY_SESSION);
   if (!session) return undefined;
   try {
     return v.parse(SessionSchema, JSON.parse(session));
@@ -155,7 +155,7 @@ export const useJSONPath = () => {
   const session = useAtomValue(sessionAtom);
   useEffect(() => {
     // Save session to local storage
-    localStorage.setItem(STORAGE_KEY_SESION, JSON.stringify(session));
+    localStorage.setItem(STORAGE_KEY_SESSION, JSON.stringify(session));
   }, [session]);
 
   const createShareURL = useCallback(async () => {

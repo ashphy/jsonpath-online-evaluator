@@ -1,8 +1,8 @@
 import * as v from "valibot";
-import { SettingScehma } from "./setting";
+import { SettingSchema } from "./setting";
 
 export const SessionSchema = v.object({
-  setting: SettingScehma,
+  setting: SettingSchema,
   query: v.string(),
   document: v.string(),
 });
