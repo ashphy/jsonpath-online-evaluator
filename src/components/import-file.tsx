@@ -33,7 +33,7 @@ export const ImportFile = () => {
         type="file"
         onInput={handleOnInput}
         accept="
-          application/jsonjson,
+          .json,
           .jsonl,
           .ndjson,
           .geojson,
