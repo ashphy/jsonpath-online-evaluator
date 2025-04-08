@@ -9,6 +9,7 @@ import {
   findSmallestNode,
   generateNormalizedPathNode,
 } from "@/lib/normalized-path";
+import { DropZone } from "../drop-zone";
 
 export const JSONEditor = () => {
   const { document, setDocument, jsonDocument } = useJSONPath();
@@ -63,25 +64,36 @@ export const JSONEditor = () => {
     setDocument(value || "");
   };
 
+  const handleOnDrop = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const content = event.target?.result as string;
+      setDocument(content);
+    };
+    reader.readAsText(file);
+  };
+
   return (
-    <Editor
-      className={cn("border-2", jsonDocument.error && "border-red-400")}
-      height="600px"
-      path="json"
-      defaultLanguage="json"
-      value={document}
-      loading="Loading..."
-      onMount={handleEditorDidMount}
-      onChange={handleOnChange}
-      options={{
-        wordWrap: "on",
-        minimap: {
-          enabled: false,
-        },
-        scrollBeyondLastLine: false,
-        formatOnPaste: true,
-        formatOnType: true,
-      }}
-    />
+    <DropZone onDrop={handleOnDrop}>
+      <Editor
+        className={cn("border-2", jsonDocument.error && "border-red-400")}
+        height="600px"
+        path="json"
+        defaultLanguage="json"
+        value={document}
+        loading="Loading..."
+        onMount={handleEditorDidMount}
+        onChange={handleOnChange}
+        options={{
+          wordWrap: "on",
+          minimap: {
+            enabled: false,
+          },
+          scrollBeyondLastLine: false,
+          formatOnPaste: true,
+          formatOnType: true,
+        }}
+      />
+    </DropZone>
   );
 };

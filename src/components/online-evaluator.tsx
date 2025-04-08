@@ -4,6 +4,7 @@ import { Result } from "./editor/result";
 import { OutputPathSwitch } from "./output-path-switch";
 import { useJSONPath } from "@/hooks/use-jsonpath";
 import { DownloadButton } from "./download-button";
+import { ImportFile } from "./import-file";
 
 export const JSONPathOnlineEvaluator = () => {
   const { outputPaths, setOutputPaths } = useJSONPath();
@@ -16,6 +17,7 @@ export const JSONPathOnlineEvaluator = () => {
         <div>
           <div className="flex justify-between items-center mb-1">
             <h2 className="py-1 text-xl text-joe-green-950">Document</h2>
+            <ImportFile />
           </div>
           <JSONEditor />
         </div>
