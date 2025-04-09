@@ -27,6 +27,7 @@ body:
     attributes:
       label: JSON
       placeholder: "{}"
+      render: JSON
     validations:
       required: true
   - type: textarea
@@ -34,6 +35,7 @@ body:
     attributes:
       label: Expected Result
       placeholder: "[]"
+      render: JSON
     validations:
       required: true
   - type: textarea
@@ -41,6 +43,7 @@ body:
     attributes:
       label: Actual Result
       placeholder: "[]"
+      render: JSON
     validations:
       required: true
   - type: dropdown
