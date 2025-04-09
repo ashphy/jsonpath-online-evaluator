@@ -1,0 +1,56 @@
+name: Query Issue Report
+description: Report regarding query issues.
+title: "[QUERY]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please use this form to report any issues with the JSONPath query results.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a clear and concise description of the issue.
+      placeholder: Describe the issue here...
+    validations:
+      required: false        
+  - type: input
+    id: query
+    attributes:
+      label: JSONPath Query
+      placeholder: ex. $.phoneNumbers[:1].type
+    validations:
+      required: true
+  - type: textarea
+    id: json
+    attributes:
+      label: JSON
+      placeholder: {}
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Result
+      placeholder: []
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Result
+      placeholder: []
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Version
+      description: Which JSONPath engine are you using?
+      options:
+        - RFC 9535 (Default)
+        - JSONPath Plus
+      default: 0
+    validations:
+      required: true
