@@ -26,21 +26,21 @@ body:
     id: json
     attributes:
       label: JSON
-      placeholder: {}
+      placeholder: "{}"
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected Result
-      placeholder: []
+      placeholder: "[]"
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
       label: Actual Result
-      placeholder: []
+      placeholder: "[]"
     validations:
       required: true
   - type: dropdown
