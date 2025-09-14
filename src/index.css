@@ -1,29 +1,103 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/*Space out content a bit*/
-body {
-  padding-bottom: 20px;
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-joe-green-50: #effefb;
+  --color-joe-green-100: #c7fff5;
+  --color-joe-green-200: #90ffeb;
+  --color-joe-green-300: #51f7e0;
+  --color-joe-green-400: #1de4cf;
+  --color-joe-green-500: #04c8b6;
+  --color-joe-green-600: #00a99d;
+  --color-joe-green-700: #058078;
+  --color-joe-green-800: #0a6561;
+  --color-joe-green-900: #0d5450;
+  --color-joe-green-950: #003333;
 }
 
-/*Make the masthead heading the same height as the navigation*/
-h3 {
-  line-height: 40px;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-bottom: 19px;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-.footer {
-  border-top: 1px solid #e5e5e5;
-  margin-top: 20px;
-  padding-top: 20px;
-  text-align: center;
-}
+@layer utilities {
+  /*Space out content a bit*/
+  body {
+    padding-bottom: 20px;
+  }
 
-.author {
-  margin-top: 20px;
+  /*Make the masthead heading the same height as the navigation*/
+  h3 {
+    line-height: 40px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 19px;
+  }
+
+  .footer {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .author {
+    margin-top: 20px;
+  }
 }
 
 @layer base {
