@@ -7,7 +7,7 @@ export const AppTitle = () => {
     <div
       className="
         w-full h-full px-4 flex items-center justify-between
-        bg-gradient-to-r from-joe-green-600 to-emerald-600"
+        bg-linear-to-r from-joe-green-600 to-emerald-600"
     >
       <h1 className="py-2 text-3xl text-white">JSONPath Online Evaluator</h1>
       <div className="justify-self-end flex gap-1 items-center">

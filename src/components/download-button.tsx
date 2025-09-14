@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { saveAs } from "file-saver";
 import { Download } from "lucide-react";
 import {
@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { useJSONPath } from "@/hooks/use-jsonpath";
 import { format } from "@formkit/tempo";
 
-export const DownloadButton = ({ className }: ButtonProps) => {
+export const DownloadButton = ({ className }: { className?: string }) => {
   const { result } = useJSONPath();
 
   const handleDownload = () => {
