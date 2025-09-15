@@ -24,6 +24,11 @@ export const JSONEditor = () => {
   }, [document]);
 
   const handleEditorDidMount: OnMount = async (editor, monaco) => {
+    monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+      validate: true,
+      allowComments: true,
+      trailingCommas: "ignore",
+    });
     monaco.languages.registerHoverProvider("json", {
       provideHover(model, position) {
         // Hover normalized path on the document only

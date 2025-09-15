@@ -8,6 +8,7 @@ import { compress, decompress } from "@/lib/compress";
 import { useCallback, useEffect } from "react";
 import { Session, SessionSchema } from "@/types/session";
 import * as v from "valibot";
+import { parse } from "jsonc-parser";
 
 const STORAGE_KEY_SESSION = "joe-session";
 
@@ -103,7 +104,7 @@ const sessionAtom = atom<Session>((get) => ({
 
 const jsonDocumentAtom = atom<JSONDocument>((get) => {
   try {
-    const jsonDocument = JSON.parse(get(documentAtom)) as JSONValue;
+    const jsonDocument = parse(get(documentAtom)) as JSONValue;
     return {
       json: jsonDocument,
       error: undefined,
