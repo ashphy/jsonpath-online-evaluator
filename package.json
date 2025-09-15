@@ -29,6 +29,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "jotai": "^2.14.0",
+    "jsonc-parser": "^3.3.1",
     "jsonpath-js": "^0.3.0",
     "jsonpath-plus": "^10.3.0",
     "lucide-react": "^0.544.0",
