@@ -63,6 +63,8 @@ jobs:
     name: Push Docker image to Docker Hub
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
